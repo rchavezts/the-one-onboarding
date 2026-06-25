@@ -23,50 +23,65 @@
 
   body{
     font-family:'Plus Jakarta Sans',-apple-system,Segoe UI,Roboto,sans-serif;
-    color:var(--navy);
-    background:var(--bg);
-    line-height:1.55;
+    color:var(--navy);background:var(--bg);line-height:1.55;
     padding:24px 16px 60px;
   }
-
   .wrap{max-width:720px;margin:0 auto;}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    background:#fff;border-radius:20px;overflow:hidden;
-    box-shadow:0 10px 40px rgba(28,44,70,.10);margin-bottom:30px;
-  }
   .band{display:flex;height:7px;}
   .band div{flex:1;}
-  .band .b1{background:var(--navy-deep);}
-  .band .b2{background:var(--blue-1);}
-  .band .b3{background:var(--blue-2);}
-  .band .b4{background:var(--blue-3);}
-  .band .b5{background:var(--cyan);}
+  .band .b1{background:var(--navy-deep);}.band .b2{background:var(--blue-1);}
+  .band .b3{background:var(--blue-2);}.band .b4{background:var(--blue-3);}.band .b5{background:var(--cyan);}
 
-  .hero-body{padding:34px 30px 30px;text-align:center;}
-  .hero img{width:100%;max-width:210px;height:auto;margin:0 auto 22px;}
-  .plan-pill{
-    display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;
-    padding:5px 13px;border-radius:20px;background:#dbeafe;color:#1d4ed8;margin-bottom:16px;
+  /* ---------- TIER GATE ---------- */
+  #gate{
+    background:#fff;border-radius:20px;overflow:hidden;
+    box-shadow:0 10px 40px rgba(28,44,70,.10);
   }
-  .hero h1{font-size:27px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px;}
-  .hero p{color:var(--slate);font-size:15.5px;max-width:460px;margin:0 auto;}
+  #gate .gate-body{padding:38px 30px 34px;text-align:center;}
+  #gate img{width:100%;max-width:200px;height:auto;margin:0 auto 24px;}
+  #gate h1{font-size:25px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px;}
+  #gate .sub{color:var(--slate);font-size:15px;max-width:420px;margin:0 auto 28px;}
 
-  /* ---------- STEPPER ---------- */
+  .tier-opts{display:flex;flex-direction:column;gap:12px;max-width:420px;margin:0 auto;}
+  .tier-opt{
+    display:flex;align-items:center;gap:16px;text-align:left;
+    border:2px solid var(--line);border-radius:14px;padding:16px 18px;
+    background:#fff;cursor:pointer;transition:all .15s ease;width:100%;
+    font-family:inherit;
+  }
+  .tier-opt:hover{border-color:var(--blue-2);transform:translateY(-1px);box-shadow:0 6px 18px rgba(47,128,214,.12);}
+  .tier-opt .dot{width:40px;height:40px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;}
+  .tier-opt[data-tier="starter"] .dot{background:var(--navy-deep);}
+  .tier-opt[data-tier="mid"] .dot{background:var(--blue-2);}
+  .tier-opt[data-tier="high"] .dot{background:var(--cyan);}
+  .tier-opt .meta .name{font-size:16px;font-weight:800;display:block;}
+  .tier-opt .meta .inc{font-size:13px;color:var(--slate);}
+
+  /* ---------- MAIN (hidden until tier picked) ---------- */
+  #main{display:none;}
+
+  .hero{
+    background:#fff;border-radius:20px;overflow:hidden;
+    box-shadow:0 10px 40px rgba(28,44,70,.10);margin-bottom:18px;
+  }
+  .hero-body{padding:32px 30px 28px;text-align:center;}
+  .hero img{width:100%;max-width:200px;height:auto;margin:0 auto 20px;}
+  .plan-pill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:5px 13px;border-radius:20px;background:#dbeafe;color:#1d4ed8;margin-bottom:15px;}
+  .hero h1{font-size:26px;font-weight:800;letter-spacing:-.3px;margin-bottom:8px;}
+  .hero p{color:var(--slate);font-size:15px;max-width:460px;margin:0 auto;}
+
+  .change-bar{text-align:center;margin-bottom:26px;}
+  .change-bar button{
+    background:none;border:none;color:var(--blue-2);font-family:inherit;
+    font-size:13px;font-weight:700;cursor:pointer;text-decoration:underline;
+  }
+
   .steps{position:relative;}
-  .steps::before{
-    content:'';position:absolute;left:23px;top:14px;bottom:40px;width:2px;
-    background:linear-gradient(to bottom,var(--blue-1),var(--blue-3));opacity:.35;
-  }
+  .steps::before{content:'';position:absolute;left:23px;top:14px;bottom:40px;width:2px;background:linear-gradient(to bottom,var(--blue-1),var(--blue-3));opacity:.35;}
 
   .step{position:relative;padding-left:62px;margin-bottom:22px;}
-  .step-num{
-    position:absolute;left:0;top:0;width:48px;height:48px;border-radius:13px;
-    background:var(--navy);color:#fff;font-weight:800;font-size:18px;
-    display:flex;align-items:center;justify-content:center;z-index:2;
-    box-shadow:0 4px 12px rgba(28,44,70,.18);
-  }
+  .step-num{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:13px;background:var(--navy);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 4px 12px rgba(28,44,70,.18);}
   .step:nth-child(1) .step-num{background:var(--navy-deep);}
   .step:nth-child(2) .step-num{background:var(--blue-1);}
   .step:nth-child(3) .step-num{background:var(--blue-2);}
@@ -75,70 +90,46 @@
   .step:nth-child(6) .step-num{background:var(--blue-3);}
   .step:nth-child(7) .step-num{background:var(--cyan);}
 
-  .card{
-    background:#fff;border-radius:14px;padding:22px 24px;
-    box-shadow:0 4px 18px rgba(28,44,70,.07);
-  }
+  .card{background:#fff;border-radius:14px;padding:22px 24px;box-shadow:0 4px 18px rgba(28,44,70,.07);}
   .card h2{font-size:19px;font-weight:800;margin-bottom:7px;}
   .card .lead{color:var(--slate);font-size:14.5px;margin-bottom:16px;}
 
   .points{list-style:none;}
-  .points li{
-    font-size:14px;color:#33455f;padding:6px 0 6px 24px;position:relative;
-  }
-  .points li::before{
-    content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;
-    background:var(--blue-2);
-  }
+  .points li{font-size:14px;color:#33455f;padding:6px 0 6px 24px;position:relative;}
+  .points li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--blue-2);}
 
-  /* ---------- LOOM PLACEHOLDER ---------- */
-  .loom{
-    margin-top:16px;border-radius:11px;overflow:hidden;
-    background:linear-gradient(135deg,#1c2c46 0%,#1a4fb0 100%);
-    aspect-ratio:16/9;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;text-align:center;padding:20px;
-  }
-  .loom .play{
-    width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.18);
-    display:flex;align-items:center;justify-content:center;margin-bottom:12px;
-    border:2px solid rgba(255,255,255,.5);
-  }
-  .loom .play::before{
-    content:'';border-style:solid;border-width:9px 0 9px 15px;
-    border-color:transparent transparent transparent #fff;margin-left:3px;
-  }
+  .loom{margin-top:16px;border-radius:11px;overflow:hidden;background:linear-gradient(135deg,#1c2c46 0%,#1a4fb0 100%);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .loom .play{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;border:2px solid rgba(255,255,255,.5);}
+  .loom .play::before{content:'';border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent #fff;margin-left:3px;}
   .loom .lbl{color:#fff;font-size:14px;font-weight:700;}
   .loom .sub{color:#aec6ec;font-size:12px;margin-top:3px;}
   /*  ▼▼▼  TO ADD A VIDEO: delete this .loom block and paste your Loom embed iframe here  ▼▼▼  */
 
-  /* ---------- HIGH-ONLY (IDX) ---------- */
-  .high-only{display:none;}
-  body.tier-high .high-only{display:block;}
-
-  .idx-flag{
-    margin-top:14px;background:#fdf8ef;border:1px solid #f4e3c4;border-left:4px solid #d4870b;
-    border-radius:10px;padding:14px 16px;
-  }
-  .idx-flag .tag{
-    font-size:10px;font-weight:800;letter-spacing:1px;color:#b3700a;
-    background:#fdebc8;display:inline-block;padding:3px 9px;border-radius:12px;margin-bottom:7px;
-  }
+  /* IDX block — shown to High as "included", to others as "available with High" */
+  .idx-flag{margin-top:14px;border-radius:10px;padding:14px 16px;}
+  .idx-flag.included{background:#fdf8ef;border:1px solid #f4e3c4;border-left:4px solid #d4870b;}
+  .idx-flag.locked{background:#f4f6fa;border:1px solid #e3eaf2;border-left:4px solid #9fb0c4;}
+  .idx-flag .tag{font-size:10px;font-weight:800;letter-spacing:1px;display:inline-block;padding:3px 9px;border-radius:12px;margin-bottom:7px;}
+  .idx-flag.included .tag{color:#b3700a;background:#fdebc8;}
+  .idx-flag.locked .tag{color:#5a6577;background:#e3eaf2;}
   .idx-flag h3{font-size:15px;font-weight:800;margin-bottom:4px;color:var(--navy);}
-  .idx-flag p{font-size:13.5px;color:#6b5320;}
+  .idx-flag.included p{font-size:13.5px;color:#6b5320;}
+  .idx-flag.locked p{font-size:13.5px;color:var(--slate);}
 
-  /* ---------- FOOTER ---------- */
-  .footer-card{
-    margin-top:30px;background:linear-gradient(135deg,#102a6b 0%,#1a4fb0 100%);
-    border-radius:16px;padding:26px 28px;text-align:center;
-  }
+  /* show/hide the two IDX variants by tier */
+  .idx-included,.idx-locked{display:none;}
+  body[data-tier="high"] .idx-included{display:block;}
+  body[data-tier="starter"] .idx-locked,
+  body[data-tier="mid"] .idx-locked{display:block;}
+
+  .footer-card{margin-top:30px;background:linear-gradient(135deg,#102a6b 0%,#1a4fb0 100%);border-radius:16px;padding:26px 28px;text-align:center;}
   .footer-card h2{color:#fff;font-size:18px;font-weight:800;margin-bottom:7px;}
   .footer-card p{color:#cdddf4;font-size:14px;}
   .footer-card a{color:#fff;font-weight:700;text-decoration:underline;}
-
   .tiny{text-align:center;color:#9aa6b6;font-size:11.5px;margin-top:22px;}
 
   @media(max-width:480px){
-    .hero-body{padding:28px 20px 24px;}
+    .hero-body,#gate .gate-body{padding:26px 18px 22px;}
     .card{padding:18px 18px;}
     .step{padding-left:54px;}
     .step-num{width:42px;height:42px;font-size:16px;}
@@ -149,189 +140,211 @@
 <body>
 <div class="wrap">
 
-  <!-- HERO -->
-  <div class="hero">
+  <!-- ============ TIER GATE ============ -->
+  <div id="gate">
     <div class="band"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div><div class="b5"></div></div>
-    <div class="hero-body">
+    <div class="gate-body">
       <img src="https://assets.cdn.filesafe.space/CtoueTZMCvD2i46ZsDWW/media/6a3c40dd817563b473dedcda.png" alt="The One — CRM & Marketing Platform">
-      <div class="plan-pill" id="planPill">YOUR PLAN</div>
-      <h1 id="greeting">Welcome to The One</h1>
-      <p>This is your command center. Follow the steps below to get comfortable — you'll be running your business from here in no time.</p>
+      <h1>Welcome to The One</h1>
+      <p class="sub">First, tell us which plan you're on so we can show you the right setup steps.</p>
+      <div class="tier-opts">
+        <button class="tier-opt" data-tier="starter">
+          <span class="dot">S</span>
+          <span class="meta"><span class="name">Starter</span><span class="inc">CRM + Contact Card</span></span>
+        </button>
+        <button class="tier-opt" data-tier="mid">
+          <span class="dot">M</span>
+          <span class="meta"><span class="name">Mid</span><span class="inc">CRM + Contact Card + Website</span></span>
+        </button>
+        <button class="tier-opt" data-tier="high">
+          <span class="dot">H</span>
+          <span class="meta"><span class="name">High</span><span class="inc">CRM + Contact Card + Website + IDX</span></span>
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- STEPS -->
-  <div class="steps">
+  <!-- ============ MAIN ============ -->
+  <div id="main">
 
-    <!-- 1 -->
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="card">
-        <h2>Start here</h2>
-        <p class="lead">A quick tour of what The One does and how everything fits together.</p>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Welcome walkthrough</div>
-          <div class="sub">Video coming soon</div>
-        </div>
+    <div class="hero">
+      <div class="band"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="b4"></div><div class="b5"></div></div>
+      <div class="hero-body">
+        <img src="https://assets.cdn.filesafe.space/CtoueTZMCvD2i46ZsDWW/media/6a3c40dd817563b473dedcda.png" alt="The One — CRM & Marketing Platform">
+        <div class="plan-pill" id="planPill">YOUR PLAN</div>
+        <h1 id="greeting">Welcome to The One</h1>
+        <p>This is your command center. Follow the steps below to get comfortable — you'll be running your business from here in no time.</p>
       </div>
     </div>
 
-    <!-- 2 -->
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="card">
-        <h2>Your dashboard</h2>
-        <p class="lead">The home screen shows your business at a glance — the moment you log in.</p>
-        <ul class="points">
-          <li>New leads, active deals, and tasks all in one view</li>
-          <li>Your numbers update in real time as activity comes in</li>
-          <li>Click any widget to jump straight to the details</li>
-        </ul>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Dashboard tour</div>
-          <div class="sub">Video coming soon</div>
-        </div>
-      </div>
+    <div class="change-bar">
+      <button id="changeTier">Not your plan? Change it</button>
     </div>
 
-    <!-- 3 -->
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="card">
-        <h2>Your pipelines</h2>
-        <p class="lead">Every lead moves through a pipeline so you always know what's next.</p>
-        <ul class="points">
-          <li>Four pipelines: Lead, Buyer, Seller, and Renter</li>
-          <li>Drag a contact between stages as the deal progresses</li>
-          <li>Nothing falls through the cracks — every stage has a next step</li>
-        </ul>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Working your pipelines</div>
-          <div class="sub">Video coming soon</div>
+    <div class="steps">
+
+      <div class="step"><div class="step-num">1</div>
+        <div class="card">
+          <h2>Start here</h2>
+          <p class="lead">A quick tour of what The One does and how everything fits together.</p>
+          <div class="loom"><div class="play"></div><div class="lbl">Welcome walkthrough</div><div class="sub">Video coming soon</div></div>
         </div>
       </div>
-    </div>
 
-    <!-- 4 -->
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="card">
-        <h2>Capturing leads</h2>
-        <p class="lead">New leads flow in automatically and become contacts you can work instantly.</p>
-        <ul class="points">
-          <li>Your forms and landing pages create contacts the moment someone submits</li>
-          <li>Your contact card captures anyone who saves your info</li>
-        </ul>
+      <div class="step"><div class="step-num">2</div>
+        <div class="card">
+          <h2>Your dashboard</h2>
+          <p class="lead">The home screen shows your business at a glance — the moment you log in.</p>
+          <ul class="points">
+            <li>New leads, active deals, and tasks all in one view</li>
+            <li>Your numbers update in real time as activity comes in</li>
+            <li>Click any widget to jump straight to the details</li>
+          </ul>
+          <div class="loom"><div class="play"></div><div class="lbl">Dashboard tour</div><div class="sub">Video coming soon</div></div>
+        </div>
+      </div>
 
-        <!-- HIGH TIER ONLY: IDX -->
-        <div class="high-only">
-          <div class="idx-flag">
+      <div class="step"><div class="step-num">3</div>
+        <div class="card">
+          <h2>Your pipelines</h2>
+          <p class="lead">Every lead moves through a pipeline so you always know what's next.</p>
+          <ul class="points">
+            <li>Four pipelines: Lead, Buyer, Seller, and Renter</li>
+            <li>Drag a contact between stages as the deal progresses</li>
+            <li>Nothing falls through the cracks — every stage has a next step</li>
+          </ul>
+          <div class="loom"><div class="play"></div><div class="lbl">Working your pipelines</div><div class="sub">Video coming soon</div></div>
+        </div>
+      </div>
+
+      <div class="step"><div class="step-num">4</div>
+        <div class="card">
+          <h2>Capturing leads</h2>
+          <p class="lead">New leads flow in automatically and become contacts you can work instantly.</p>
+          <ul class="points">
+            <li>Your forms and landing pages create contacts the moment someone submits</li>
+            <li>Your contact card captures anyone who saves your info</li>
+          </ul>
+
+          <!-- High tier: IDX included -->
+          <div class="idx-flag included idx-included">
             <span class="tag">INCLUDED WITH YOUR PLAN</span>
             <h3>Your IDX home search</h3>
             <p>Buyers searching listings on your site become leads here too — and their activity shows up on your IDX dashboard in the left menu, so you can see exactly what they're browsing.</p>
           </div>
-        </div>
 
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Where leads come from</div>
-          <div class="sub">Video coming soon</div>
+          <!-- Starter/Mid: IDX available as upgrade -->
+          <div class="idx-flag locked idx-locked">
+            <span class="tag">AVAILABLE WITH HIGH</span>
+            <h3>IDX home search</h3>
+            <p>Upgrade to High and we'll add a live home search to your site — buyers browsing listings become leads automatically, with their activity tracked on a dedicated dashboard. Ask us about upgrading.</p>
+          </div>
+
+          <div class="loom"><div class="play"></div><div class="lbl">Where leads come from</div><div class="sub">Video coming soon</div></div>
         </div>
       </div>
-    </div>
 
-    <!-- 5 -->
-    <div class="step">
-      <div class="step-num">5</div>
-      <div class="card">
-        <h2>Staying in touch</h2>
-        <p class="lead">Reach your contacts by text and email, and let them book you directly.</p>
-        <ul class="points">
-          <li>Ready-made email and text templates — send in seconds</li>
-          <li>Your calendar lets clients book appointments without the back-and-forth</li>
-          <li>Every conversation lives on the contact, so you never lose the thread</li>
-        </ul>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Messaging &amp; booking</div>
-          <div class="sub">Video coming soon</div>
+      <div class="step"><div class="step-num">5</div>
+        <div class="card">
+          <h2>Staying in touch</h2>
+          <p class="lead">Reach your contacts by text and email, and let them book you directly.</p>
+          <ul class="points">
+            <li>Ready-made email and text templates — send in seconds</li>
+            <li>Your calendar lets clients book appointments without the back-and-forth</li>
+            <li>Every conversation lives on the contact, so you never lose the thread</li>
+          </ul>
+          <div class="loom"><div class="play"></div><div class="lbl">Messaging &amp; booking</div><div class="sub">Video coming soon</div></div>
         </div>
       </div>
-    </div>
 
-    <!-- 6 -->
-    <div class="step">
-      <div class="step-num">6</div>
-      <div class="card">
-        <h2>Your contact card</h2>
-        <p class="lead">Your branded digital card — the fastest way to share your info and capture leads.</p>
-        <ul class="points">
-          <li>Share the link in person, in your bio, or in an email signature</li>
-          <li>People can save your contact, call, text, or email in one tap</li>
-          <li>Add it to your phone's home screen so it's always handy</li>
-        </ul>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Using your contact card</div>
-          <div class="sub">Video coming soon</div>
+      <div class="step"><div class="step-num">6</div>
+        <div class="card">
+          <h2>Your contact card</h2>
+          <p class="lead">Your branded digital card — the fastest way to share your info and capture leads.</p>
+          <ul class="points">
+            <li>Share the link in person, in your bio, or in an email signature</li>
+            <li>People can save your contact, call, text, or email in one tap</li>
+            <li>Add it to your phone's home screen so it's always handy</li>
+          </ul>
+          <div class="loom"><div class="play"></div><div class="lbl">Using your contact card</div><div class="sub">Video coming soon</div></div>
         </div>
       </div>
-    </div>
 
-    <!-- 7 -->
-    <div class="step">
-      <div class="step-num">7</div>
-      <div class="card">
-        <h2>Finish your setup</h2>
-        <p class="lead">A few things only you can connect — do these and you're fully live.</p>
-        <ul class="points">
-          <li>Connect your calendar so bookings sync to you</li>
-          <li>Set up your phone number for calls and texts</li>
-          <li>Connect your email so messages send from your address</li>
-        </ul>
-        <div class="loom">
-          <div class="play"></div>
-          <div class="lbl">Connecting your accounts</div>
-          <div class="sub">Video coming soon</div>
+      <div class="step"><div class="step-num">7</div>
+        <div class="card">
+          <h2>Finish your setup</h2>
+          <p class="lead">A few things only you can connect — do these and you're fully live.</p>
+          <ul class="points">
+            <li>Connect your calendar so bookings sync to you</li>
+            <li>Set up your phone number for calls and texts</li>
+            <li>Connect your email so messages send from your address</li>
+          </ul>
+          <div class="loom"><div class="play"></div><div class="lbl">Connecting your accounts</div><div class="sub">Video coming soon</div></div>
         </div>
       </div>
+
     </div>
+
+    <div class="footer-card">
+      <h2>Stuck on anything?</h2>
+      <p>We're here to help. Reach out at <a href="mailto:support@theonecrm.com">support@theonecrm.com</a> and we'll get you sorted.</p>
+    </div>
+
+    <p class="tiny">The One — CRM &amp; Marketing Platform</p>
 
   </div>
-
-  <!-- FOOTER -->
-  <div class="footer-card">
-    <h2>Stuck on anything?</h2>
-    <p>We're here to help. Reach out at <a href="mailto:analiacastillo1@gmail.com">analiacastillo1@gmail.com</a> and we'll get you sorted.</p>
-  </div>
-
-  <p class="tiny">The One — CRM &amp; Marketing Platform</p>
-
 </div>
 
 <script>
   (function(){
     var params = new URLSearchParams(window.location.search);
-    var tier = (params.get('tier') || '').trim().toLowerCase();
-    var name = (params.get('name') || '').trim();
-
-    // Tier gating — only show IDX content for High
-    if(tier === 'high'){ document.body.classList.add('tier-high'); }
-
-    // Plan pill label
-    var pill = document.getElementById('planPill');
+    var urlTier = (params.get('tier')||'').trim().toLowerCase();
+    var name = (params.get('name')||'').trim();
     var labels = { starter:'STARTER PLAN', mid:'MID PLAN', high:'HIGH PLAN' };
-    if(labels[tier]){ pill.textContent = labels[tier]; }
-    else { pill.style.display = 'none'; }
+    var valid = ['starter','mid','high'];
 
-    // Personalized greeting
-    if(name){
-      var safe = name.replace(/[<>]/g,'');
-      document.getElementById('greeting').textContent = 'Welcome, ' + safe + '!';
+    var gate = document.getElementById('gate');
+    var main = document.getElementById('main');
+
+    function applyTier(tier){
+      if(valid.indexOf(tier) === -1) return false;
+      document.body.setAttribute('data-tier', tier);
+      document.getElementById('planPill').textContent = labels[tier];
+      if(name){
+        var safe = name.replace(/[<>]/g,'');
+        document.getElementById('greeting').textContent = 'Welcome, ' + safe + '!';
+      }
+      gate.style.display = 'none';
+      main.style.display = 'block';
+      window.scrollTo(0,0);
+      try{ sessionStorage.setItem('theone_tier', tier); }catch(e){}
+      return true;
     }
+
+    // Priority: URL param > saved session choice > show gate
+    var saved = '';
+    try{ saved = sessionStorage.getItem('theone_tier') || ''; }catch(e){}
+
+    if(!applyTier(urlTier)){
+      if(!applyTier(saved)){
+        gate.style.display = 'block';
+        main.style.display = 'none';
+      }
+    }
+
+    document.querySelectorAll('.tier-opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        applyTier(btn.getAttribute('data-tier'));
+      });
+    });
+
+    document.getElementById('changeTier').addEventListener('click', function(){
+      try{ sessionStorage.removeItem('theone_tier'); }catch(e){}
+      document.body.removeAttribute('data-tier');
+      main.style.display = 'none';
+      gate.style.display = 'block';
+      window.scrollTo(0,0);
+    });
   })();
 </script>
 </body>
