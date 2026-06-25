@@ -305,7 +305,7 @@
   <!-- FOOTER -->
   <div class="footer-card">
     <h2>Stuck on anything?</h2>
-    <p>We're here to help. Reach out at <a href="mailto:support@theonecrm.com">support@theonecrm.com</a> and we'll get you sorted.</p>
+    <p>We're here to help. Reach out at <a href="mailto:analiacastillo1@gmail.com">analiacastillo1@gmail.com</a> and we'll get you sorted.</p>
   </div>
 
   <p class="tiny">The One — CRM &amp; Marketing Platform</p>
